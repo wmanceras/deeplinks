@@ -4,15 +4,18 @@
 
   </head>
   <body>	
-	 <button onClick="validarApp">validar App</button>
+	 <button onClick="validarApp()">validar App</button>
 	 <br>
 	 <p>POST MESSAGE BAJIO APP<br><a id="enlace" href="bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial">Ejecutar DEEPLINK</a>.</p>
 <script>
 function validarApp() {
 	try{
 		var enlace = document.getElementById("enlace");
-		enlace.click();
+		if(!enlace.click()){
+		location.href="https://www.veritran.com";
+		}
 	}catch(error){
+	console.error("error");
 		console.error(error);
 		location.href="https://www.veritran.com";
 	}
