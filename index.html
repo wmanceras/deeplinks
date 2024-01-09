@@ -4,7 +4,20 @@
 
   </head>
   <body>	
-	 <p>POST MESSAGE BAJIO APP<br><a href="bajionetmovil://path/test?src=APPLEPAY">Ejecutar DEEPLINK</a>.</p>
+	 <button onClick="validarApp">validar App</button>
 	 <br>
+	 <p>POST MESSAGE BAJIO APP<br><a id="enlace" href="bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial">Ejecutar DEEPLINK</a>.</p>
+<script>
+function validarApp() {
+	try{
+		var enlace = document.getElementById("enlace");
+		enlace.click();
+	}catch(error){
+		console.error(error);
+		location.href="https://www.veritran.com";
+	}
+}
+</script>
+	  
   </body>
 </html>
