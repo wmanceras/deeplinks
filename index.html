@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-
-  </head>
   <body>
-	 <button onClick="validarApp()">validar App</button>
-	 <br>
-	 <p>POST MESSAGE BAJIO APP<br><a id="enlace" href="bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial">Ejecutar DEEPLINK</a>.</p>
-<script>
-function validarApp(event) {
+	  <a href="#" id="miEnlace">Haz clic aquí</a>
+<div id="resultado"></div>
+	  <script>
+document.getElementById('miEnlace').addEventListener('click', function(event) {
     event.preventDefault(); // Evita que el enlace se abra automáticamente
 
     // Intenta navegar a una URL (puedes personalizar la URL según tus necesidades)
-    var url = 'bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial';
+    var url = 'https://www.ejemplo.com';
 
     // Utiliza un objeto Image para cargar la URL
     var img = new Image();
 
     img.onload = function() {
       console.log('Éxito: Navegación a la URL exitosa');
-      alert('Éxito: Navegación a la URL exitosa')
+      // Aquí puedes realizar acciones adicionales después del éxito, si es necesario
     };
 
     img.onerror = function() {
       console.error('Error: Failed to launch. No se pudo navegar a la URL');
-alert('Error: Failed to launch. No se pudo navegar a la URL');
+      // Aquí puedes realizar acciones adicionales en caso de error
+      document.getElementById('resultado').innerText = 'Error al intentar navegar a la URL';
     };
 
     // Intenta cargar la URL
     img.src = url;
-}
+  });
 </script>
 	  
   </body>
