@@ -11,11 +11,9 @@
 function validarApp() {
 	try{
 		var enlace = document.getElementById("enlace");
-		if(!enlace.click()){
-		location.href="	https://play.google.com/store/apps/details?id=net.veritran.vrtr.mb.s.prod&hl=es_CO&gl=US";
-		}
+		enlace.click();
 	}catch(error){
-	console.error("error");
+		console.error("error");
 		console.error(error);
 		location.href="	https://play.google.com/store/apps/details?id=net.veritran.vrtr.mb.s.prod&hl=es_CO&gl=US";
 	}
