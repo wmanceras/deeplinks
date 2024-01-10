@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
   <body>
- <a href="#" id="miEnlace">Ir a BajioNet 3.0</a>
+ <a href="#" id="miEnlace">Ir a BajioNet 4.0</a>
 <div id="resultado"></div>
 
 <script>
   document.getElementById('miEnlace').addEventListener('click', function() {
-  	 try {
-	  // Intenta crear una nueva URI
-	  var miURI = new URL('bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial');
-	  
-	  // Realiza acciones con la URI (pueden lanzar errores)
-	  console.log('URI creada exitosamente:', miURI.href);
+	try {
+	  // Ejemplo de Deep Link
+	  var deepLink = 'bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial';
+	
+	  // Intenta abrir el Deep Link
+	  window.open(deepLink, '_blank');
 	} catch (error) {
-	  // Captura y maneja el error
-	  console.error('Error al crear o manipular la URI:', error.message);
+	  // Captura y maneja el error	  	
+	  console.error('Error al intentar abrir el Deep Link:', error.message);
 	}
   });
 </script>
