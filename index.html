@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html>
   <body>
- <a href="#" id="miEnlace">Ir a BajioNet 2.0</a>
+ <a href="#" id="miEnlace">Ir a BajioNet 3.0</a>
 <div id="resultado"></div>
 
 <script>
   document.getElementById('miEnlace').addEventListener('click', function() {
-    // URL que intentarás invocar (sustitúyela por tu propia URL)
-    var url = 'bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial';
-
-    // Realiza la solicitud usando fetch
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to launch. Respuesta no exitosa: ');
-        }
-      })
-      .then(data => {
-        console.log('Éxito: ', data);
-        document.getElementById('resultado').innerText = 'Éxito: ' + data;
-      })
-      .catch(error => {
-        // Maneja el error
-        console.error('Error: ' + error.message);
-        document.getElementById('resultado').innerText = 'Error: ' + error.message;
-      });
-  });
+  	 try {
+	  // Intenta crear una nueva URI
+	  var miURI = new URL('bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial');
+	  
+	  // Realiza acciones con la URI (pueden lanzar errores)
+	  console.log('URI creada exitosamente:', miURI.href);
+	} catch (error) {
+	  // Captura y maneja el error
+	  console.error('Error al crear o manipular la URI:', error.message);
+	}
+  }
 </script>
 	  
   </body>
