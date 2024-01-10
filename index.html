@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html>
   <body>
- <a href="#" id="miEnlace">Ir a BajioNet 8.0</a>
+	 <button onClick="validarApp()">validar App</button>
+	 <br>
+	 <p>POST MESSAGE BAJIO APP<br><a id="enlace" href="bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial">Ejecutar DEEPLINK</a>.</p>
+
+	  
+ <a href="#" id="miEnlace">Ir a BajioNet 10.0</a>
 <div id="resultado"></div>
 
 <script>
+
+	function validarApp() {
+		try{
+		var enlace = document.getElementById("enlace");
+		enlace.click();
+		} catch (error) {
+		  // Captura y maneja el error	  	
+		  console.error('Error al intentar abrir el Deep Link:', error.message);
+		}
+	}
+	
   document.getElementById('miEnlace').addEventListener('click', function() {
 	try {
 	  // Ejemplo de Deep Link
