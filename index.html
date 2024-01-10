@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
   <body>
-	  <a href="#" id="miEnlace">Ir a BajioNet</a>
+ <a href="#" id="miEnlace">Ir a BajioNet 2.0</a>
 <div id="resultado"></div>
-	  <script>
-document.getElementById('miEnlace').addEventListener('click', function(event) {
-    event.preventDefault(); // Evita que el enlace se abra automáticamente
 
-    // Intenta navegar a una URL (puedes personalizar la URL según tus necesidades)
+<script>
+  document.getElementById('miEnlace').addEventListener('click', function() {
+    // URL que intentarás invocar (sustitúyela por tu propia URL)
     var url = 'bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial';
 
-    // Utiliza un objeto Image para cargar la URL
-    var img = new Image();
-
-    img.onload = function() {
-      console.log('Éxito: Navegación a la URL exitosa');
-    };
-
-    img.onerror = function() {
-      console.error('Error: Failed to launch. No se pudo navegar a la URL');
-      location.href="https://play.google.com/store/apps/details?id=net.veritran.vrtr.mb.s.prod&hl=es_CO&gl=US";
-    };
-
-    // Intenta cargar la URL
-    img.src = url;
+    // Realiza la solicitud usando fetch
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to launch. Respuesta no exitosa: ');
+        }
+      })
+      .then(data => {
+        console.log('Éxito: ', data);
+        document.getElementById('resultado').innerText = 'Éxito: ' + data;
+      })
+      .catch(error => {
+        // Maneja el error
+        console.error('Error: ' + error.message);
+        document.getElementById('resultado').innerText = 'Error: ' + error.message;
+      });
   });
 </script>
 	  
