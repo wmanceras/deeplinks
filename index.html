@@ -3,20 +3,32 @@
   <head>
 
   </head>
-  <body>	
+  <body>
 	 <button onClick="validarApp()">validar App</button>
 	 <br>
 	 <p>POST MESSAGE BAJIO APP<br><a id="enlace" href="bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial">Ejecutar DEEPLINK</a>.</p>
 <script>
-function validarApp() {
-	try{
-		var enlace = document.getElementById("enlace");
-		enlace.click();
-	}catch(error){
-		console.error("error");
-		console.error(error);
-		location.href="	https://play.google.com/store/apps/details?id=net.veritran.vrtr.mb.s.prod&hl=es_CO&gl=US";
-	}
+function validarApp(event) {
+    event.preventDefault(); // Evita que el enlace se abra automáticamente
+
+    // Intenta navegar a una URL (puedes personalizar la URL según tus necesidades)
+    var url = 'https://www.ejemplo.com';
+
+    // Utiliza un objeto Image para cargar la URL
+    var img = new Image();
+
+    img.onload = function() {
+      console.log('Éxito: Navegación a la URL exitosa');
+      alert('Éxito: Navegación a la URL exitosa')
+    };
+
+    img.onerror = function() {
+      console.error('Error: Failed to launch. No se pudo navegar a la URL');
+alert('Error: Failed to launch. No se pudo navegar a la URL');
+    };
+
+    // Intenta cargar la URL
+    img.src = url;
 }
 </script>
 	  
