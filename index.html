@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <body>
- <a href="#" id="miEnlace">Ir a BajioNet 7.0</a>
+ <a href="#" id="miEnlace">Ir a BajioNet 8.0</a>
 <div id="resultado"></div>
 
 <script>
@@ -10,8 +10,18 @@
 	  // Ejemplo de Deep Link
 	  var deepLink = 'bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial';
 	
-	  // Intenta abrir el Deep Link
-	  window.location.href = deeplink;
+	  // Crea un enlace
+	  var enlace = document.createElement('a');
+	  enlace.href = deeplink;
+	
+	  // Asegúrate de que el enlace esté en el DOM (puede ser necesario para algunos navegadores)
+	  document.body.appendChild(enlace);
+	
+	  // Simula un clic en el enlace
+	  enlace.click();
+	
+	  // Elimina el enlace del DOM (opcional, dependiendo de tus necesidades)
+	  document.body.removeChild(enlace);
 	} catch (error) {
 	  // Captura y maneja el error	  	
 	  console.error('Error al intentar abrir el Deep Link:', error.message);
