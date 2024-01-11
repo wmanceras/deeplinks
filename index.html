@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
   <body>
-	 <button onClick="validarApp()">validar App</button>
-	 <br>
-	 <p>POST MESSAGE BAJIO APP<br><a id="enlace" href="bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial">Ejecutar DEEPLINK</a>.</p>
-
-	<a href="#" id="deepLink">Ir a BajioNet 11.0</a>
+	<a href="#" id="deepLink"></a>
 
   <script>
-    document.getElementById('deepLink').addEventListener('click', function(event) {
+	document.addEventListener('DOMContentLoaded', function() {
+	    // La función se ejecutará cuando el DOM esté completamente cargado
+	    toCallkHref();
+	});
+
+	function toCallkHref() {
+            console.log('La página se ha cargado completamente');
+	    document.getElementById('deepLink').addEventListener('click', toClickHref);	
+        }
+	  
+    function toClickHref(event) {
       event.preventDefault();
 
-      // Reemplaza 'tu-esquema' con el esquema personalizado de tu aplicación
+      // esquema personalizado de la aplicación
       var appScheme = 'bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial';
 
       // URL de respaldo en caso de que la aplicación no esté instalada
@@ -23,8 +29,8 @@
       // Esperar un tiempo y redirigir al fallback en caso de que la aplicación no se abra
       setTimeout(function() {
         window.location.href = fallbackUrl;
-      }, 2000); // Puedes ajustar el tiempo según tus necesidades
-    });
+      }, 1000);
+    }
   </script>
 	  
   </body>
