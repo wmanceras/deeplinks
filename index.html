@@ -6,7 +6,7 @@
   <script>
 	document.addEventListener('DOMContentLoaded', function() {
 	    // La función se ejecutará cuando el DOM esté completamente cargado
-	    toCallkHref();
+	    toClickHref();
 	});
 
 	function toCallkHref() {
@@ -14,8 +14,8 @@
 	    document.getElementById('deepLink').addEventListener('click', toClickHref());	
         }
 	  
-    function toClickHref(event) {
-      event.preventDefault();
+    function toClickHref() {
+      //event.preventDefault();
 
       // esquema personalizado de la aplicación
       var appScheme = 'bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial';
