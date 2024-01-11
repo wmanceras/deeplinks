@@ -5,45 +5,27 @@
 	 <br>
 	 <p>POST MESSAGE BAJIO APP<br><a id="enlace" href="bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial">Ejecutar DEEPLINK</a>.</p>
 
-	  
- <a href="#" id="miEnlace">Ir a BajioNet 10.0</a>
-<div id="resultado"></div>
+	<a href="#" id="deepLink">Ir a BajioNet 11.0</a>
 
-<script>
+  <script>
+    document.getElementById('deepLink').addEventListener('click', function(event) {
+      event.preventDefault();
 
-	function validarApp() {
-		try{
-		var enlace = document.getElementById("enlace");
-		enlace.click();
-		} catch (error) {
-		  // Captura y maneja el error	  	
-		  console.error('Error al intentar abrir el Deep Link:', error.message);
-		}
-	}
-	
-  document.getElementById('miEnlace').addEventListener('click', function() {
-	try {
-	  // Ejemplo de Deep Link
-	  var deepLink = 'bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial';
-	
-	  // Crea un enlace
-	  var enlace = document.createElement('a');
-	  enlace.href = deeplink;
-	
-	  // Asegúrate de que el enlace esté en el DOM (puede ser necesario para algunos navegadores)
-	  document.body.appendChild(enlace);
-	
-	  // Simula un clic en el enlace
-	  enlace.click();
-	
-	  // Elimina el enlace del DOM (opcional, dependiendo de tus necesidades)
-	  document.body.removeChild(enlace);
-	} catch (error) {
-	  // Captura y maneja el error	  	
-	  console.error('Error al intentar abrir el Deep Link:', error.message);
-	}
-  });
-</script>
+      // Reemplaza 'tu-esquema' con el esquema personalizado de tu aplicación
+      var appScheme = 'bajionetmovil://path/test?channel=Banxico&messageid=Push No Presencial';
+
+      // URL de respaldo en caso de que la aplicación no esté instalada
+      var fallbackUrl = 'https://movil.bb.com.mx/';
+
+      // Intentar abrir la aplicación
+      window.location.href = appScheme;
+
+      // Esperar un tiempo y redirigir al fallback en caso de que la aplicación no se abra
+      setTimeout(function() {
+        window.location.href = fallbackUrl;
+      }, 2000); // Puedes ajustar el tiempo según tus necesidades
+    });
+  </script>
 	  
   </body>
 </html>
